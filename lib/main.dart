@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home.dart'; 
 
 void main() => runApp(MaterialApp(
     home: LoginPage()
@@ -149,9 +150,9 @@ class _LoginPageState extends State<LoginPage> {
             firstName = '';
             secondName = '';
 
-            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+             Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
               return Home();
-            }),);
+            }),); 
           });
         },
         backgroundColor: Color.fromARGB(255, 158, 1, 185),
