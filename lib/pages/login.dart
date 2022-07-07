@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './signup.dart';
 import './home.dart';
 
 class LoginPage extends StatefulWidget {
@@ -56,17 +57,45 @@ class _LoginPageState extends State<LoginPage> {
                     hintText: 'Password'
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.only(top: 40.0),
-                  child: RaisedButton(
-                    onPressed: () {
-                      setState(() {
-                        firstName = _textController1.text;
-                        secondName = _textController2.text;
-                      });
-                    },
-                    child: Text('Login'),
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(top: 40.0),
+                      child: RaisedButton(
+                        onPressed: () {
+                          setState(() {
+                            firstName = _textController1.text;
+                            secondName = _textController2.text;
+                            /* Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+                                return Home();
+                              }),); */
+                          });
+                        },
+                        child: Text('Login'),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(top: 40.0),
+                      child: RaisedButton(
+                        color: Colors.purple,
+                        onPressed: () {
+                          setState(() {
+                            firstName = _textController1.text;
+                            secondName = _textController2.text;
+                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+                                return signup();
+                            }),
+                            ); 
+                          });
+                        },
+                        child: Text('Sign up',
+                        style: TextStyle(
+                          color: Colors.white
+                        ),),
+                      ),
+                    )
+                  ],
                 ),
               ],
             ),

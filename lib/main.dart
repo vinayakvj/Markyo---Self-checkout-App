@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'pages/home.dart'; 
 import 'pages/login.dart';
 import './pages/splash.dart';
+import './pages/signup.dart';
 
 void main() => runApp(MaterialApp(
-    home: splash()
+    home: LoginPage()
     ),
 );
 
