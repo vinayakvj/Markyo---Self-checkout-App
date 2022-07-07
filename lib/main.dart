@@ -5,7 +5,7 @@ import './pages/splash.dart';
 import './pages/signup.dart';
 
 void main() => runApp(MaterialApp(
-    home: LoginPage()
+    home: splash()
     ),
 );
 
