@@ -1,11 +1,11 @@
  class Product {
 
   String? name;
-  int? cost;
+  /* int? cost = 10; */
 
-  Product({required String name,required int cost}) {
+  Product({required String name}) {
     this.name = name;
-    this.cost = cost;
+    /* this.cost = cost; */
   }
 }
 

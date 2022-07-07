@@ -1,80 +1,7 @@
 import 'package:flutter/material.dart';
-import 'pages/home.dart'; 
-import 'pages/login.dart';
-import './pages/splash.dart';
+import './home.dart';
 
-void main() => runApp(MaterialApp(
-    home: splash()
-    ),
-);
-
-class Login extends StatelessWidget {
-  
-  const Login({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Markyo',
-        style: TextStyle(
-          fontSize: 20.0,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 2.0,
-        ),
-      ),
-        backgroundColor: Color.fromARGB(255, 158, 1, 185),
-        centerTitle: true,
-      ),
-      body: Center(
-          child: Container(
-            padding: EdgeInsets.only(left: 35,right: 35),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('LoginD;',
-                style: TextStyle(
-                  fontSize: 30.0
-                ),
-              ),
-                Container(
-                  padding: EdgeInsets.only(top: 20.0,bottom: 20.0),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Username'
-                    ),
-                  ),
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Password'
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: 40.0),
-                  child: RaisedButton(
-                    onPressed: () {},
-                    child: Text('Login'),
-                  ),
-                ),
-              ],
-            ),
-          )
-        ), 
-      floatingActionButton: FloatingActionButton(
-        child: Text('click'),
-        onPressed: () {},
-        backgroundColor: Color.fromARGB(255, 158, 1, 185),
-      ),
-      );
-  }
-}
-
-
-// state full widget so changes can be made.
-
-/* class LoginPage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
@@ -161,4 +88,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
       );
   }
-} */
+}
