@@ -11,5 +11,6 @@ router.get("/dash", (req, res) => {
 });
 
 router.post("/addUser", actions.addNew);
+router.post("/auth", actions.authenticate);
 
 module.exports = router;
