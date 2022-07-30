@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import '../Components/card.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:flutter/services.dart';
+
+
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -11,6 +15,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   List<Product> l1 = [];
+  String? scanResult;
+  
+
 
     final _textController = TextEditingController();
 
@@ -38,8 +45,25 @@ class _HomeState extends State<Home> {
     );
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
+
+    Future scanBarCode() async {
+      try{
+        scanResult = await FlutterBarcodeScanner.scanBarcode("#ff6666","Cancel",true, ScanMode.BARCODE);
+      } on PlatformException {
+        scanResult = 'Failed to get platform version.';
+      }
+      if (!mounted) return;
+
+      setState(() {
+        this.scanResult = scanResult;
+        l1.insert(0, Product(name: scanResult));
+      });
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 158, 1, 185),
@@ -76,10 +100,16 @@ class _HomeState extends State<Home> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
+          /* setState(() {
             l1.insert(0, Product(name: _textController.text));
             _textController.clear();
+          }); */
+          scanBarCode();
+          setState(() {
+            
+            _textController.clear();
           });
+
         },
         backgroundColor: Colors.purple,
         child: Text("+",

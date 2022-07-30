@@ -82,9 +82,9 @@ class _LoginPageState extends State<LoginPage> {
                             /* Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
                                 return Home();
                               }),); */
-                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+                            /* Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
                               return mainhome();
-                                }),); 
+                                }),);  */
                               
                           });
                         },
@@ -124,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
           )
         ), 
       floatingActionButton: FloatingActionButton(
-        child: Text('clear'),
+        child: Text('Home'),
         onPressed: () {
           setState(() {
             firstName = '';
