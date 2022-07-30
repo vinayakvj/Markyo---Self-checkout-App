@@ -7,6 +7,10 @@ const bodyparser = require("body-parser");
 const { application } = require("express");
 const routes = require("./routes/route");
 
+const dotenv = require("dotenv");
+
+dotenv.config();
+
 connectDb();
 
 const app = express();
@@ -20,6 +24,10 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, console.log("server started at 3000"));
+app.listen(process.env.PORT || 3000, function () {
+  console.log(
+    "Express server listening on port %d in %s mode",
+    this.address().port,
+    app.settings.env
+  );
+});

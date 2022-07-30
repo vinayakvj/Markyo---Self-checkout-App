@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:markyo/pages/mainhome.dart';
+/* import 'package:fluttertoast/fluttertoast.dart'; */
+/* import 'package:markyo/services/authservice.dart'; */
 import './signup.dart';
-import './home.dart';
+import 'home.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -16,6 +19,9 @@ class _LoginPageState extends State<LoginPage> {
 
     String firstName = '';
     String secondName = '';
+    String name = '';
+    String password = '';
+    var token;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +51,9 @@ class _LoginPageState extends State<LoginPage> {
                 Container(
                   padding: EdgeInsets.only(top: 20.0,bottom: 20.0),
                   child: TextField(
+                    onChanged: (val) {
+                      name = val;
+                    },
                     controller: _textController1,
                     decoration: InputDecoration(
                       hintText: 'Username'
@@ -52,6 +61,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 TextField(
+                  onChanged: (val) {
+                    password: val;
+                  },
                   controller: _textController2,
                   decoration: InputDecoration(
                     hintText: 'Password'
@@ -70,6 +82,10 @@ class _LoginPageState extends State<LoginPage> {
                             /* Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
                                 return Home();
                               }),); */
+                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+                              return mainhome();
+                                }),); 
+                              
                           });
                         },
                         child: Text('Login'),
@@ -88,6 +104,12 @@ class _LoginPageState extends State<LoginPage> {
                             }),
                             ); 
                           });
+                          /* AuthService().login(name, password).then((val) {
+                            if (val.data['success']) {
+                              token = val.data['token'];
+                              Fluttertoast.showToast(msg: 'Authenticated',);
+                            }
+                          }); */
                         },
                         child: Text('Sign up',
                         style: TextStyle(
