@@ -15,7 +15,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   List<Product> l1 = [];
-  String? scanResult;
+  var scanResult;
+  var tot = 0;
   
 
 
@@ -32,8 +33,15 @@ class _HomeState extends State<Home> {
       child: Card(
             child: ListTile(
               leading: FlutterLogo(size: 56.0),
-              title: Text('${produ.name}'),
-              subtitle: Text('Rs.10'),
+              title: Text('${produ.name}',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 5),
+                child: Text('COST: ${produ.cost}'),
+              ),
               trailing: IconButton(
           icon: const Icon(Icons.delete),
           onPressed: () {
@@ -60,7 +68,9 @@ class _HomeState extends State<Home> {
 
       setState(() {
         this.scanResult = scanResult;
-        l1.insert(0, Product(name: scanResult));
+        var s = scanResult.split(" ");
+        l1.insert(0, Product(name: s[0], cost: s[1]));
+        tot = tot + int.parse(s[1]);
       });
     }
 
@@ -95,15 +105,35 @@ class _HomeState extends State<Home> {
                 }).toList(),
               ),
             ),
+            Container(
+          width: 240.0,
+          height: 42.0,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(24.0),
+            color: const Color(0xff2c2c2c),
+          ),
+          child: Center(
+            child: Text(
+              'Total ${tot}',
+              style: TextStyle(
+                fontFamily: 'Arial',
+                fontSize: 18,
+                color: Colors.white,
+                height: 1,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
           ],
         )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          /* setState(() {
+           /* setState(() {
             l1.insert(0, Product(name: _textController.text));
             _textController.clear();
-          }); */
+          });  */
           scanBarCode();
           setState(() {
             
