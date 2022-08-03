@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../Components/card.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter/services.dart';
+import 'qrcode.dart';
 
 
 
@@ -109,7 +110,7 @@ class _HomeState extends State<Home> {
           width: 240.0,
           height: 42.0,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(24.0),
+            borderRadius: BorderRadius.circular(10.0),
             color: const Color(0xff2c2c2c),
           ),
           child: Center(
@@ -125,6 +126,24 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.green,
+                  textStyle: TextStyle(
+                    fontSize: 30,
+                  )
+                  ),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+                                return qrcode(value: tot);
+                            }),
+                            );
+              },
+              child: const Text('Check Out'),
+            ),
+        )
           ],
         )
       ),
