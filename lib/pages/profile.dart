@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 class profile extends StatefulWidget {
@@ -11,33 +13,63 @@ class _profileState extends State<profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.orange,
-          title: Text(
-            "PROFILE",
-            style: TextStyle(
-              fontSize: 30,
-              fontFamily: "Poppins",
-              color: Colors.black,
-            ),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.orange,
+        title: Text(
+          "PROFILE",
+          style: TextStyle(
+            fontSize: 30,
+            fontFamily: "Poppins",
+            color: Colors.black,
           ),
         ),
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+          image: AssetImage('assets/shopbg.jpg'),
+          fit: BoxFit.fill,
+        )),
+        child: Wrap(
+          spacing: 20,
+          runSpacing: 415,
+          alignment: WrapAlignment.start,
           children: [
             IconButton(
               icon: Icon(Icons.person_outlined),
-              color: Color.fromARGB(255, 27, 255, 2),
+              color: Colors.black,
               iconSize: 150,
               onPressed: () {},
             ),
             Text(
               "YAA MONNE!!",
-              style: TextStyle(fontSize: 20, color: Colors.black),
+              style: TextStyle(fontSize: 20, color: Colors.black, height: 5),
+            ),
+            ElevatedButton(
+              child: Text(
+                "REWARDS",
+                style: TextStyle(fontSize: 35, color: Colors.black),
+              ),
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                primary: Colors.orange,
+              ),
+            ),
+            ElevatedButton(
+              child: Text(
+                "LOGOUT",
+                style: TextStyle(fontSize: 35, color: Colors.black),
+              ),
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                primary: Colors.orange,
+              ),
             ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
